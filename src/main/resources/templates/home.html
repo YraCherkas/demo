@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>Home</title>
+</head>
+<body style="position: relative; background-color: #046586">
+    <div style="position: relative;left:-10px; background-color: #4DA927; width: 110%; height: 90px; top: -20px">
+        <h1 style="position: relative; text-align: center; top: 20px"> Welcome to our site!</h1>
+        <br>
+        <hr>
+    </div>
+
+    <h2 style="position: relative; text-align: center;">
+<!--        <button style="position: relative; left:-30%; width: 350px; height: 40px; font-size:2vw;-->
+<!--        background-color: #14D3C1" >-->
+            <form style="position: relative; left: 40%;" action="/search">
+                <input name="searchParam" type="search" placeholder="Введите текст" aria-label="Search">
+                <button type="submit">Search</button>
+            </form>
+            <a href="/add_user" style="position: relative; left: -40%; color: #17FF00 ">Добавить пользователя</a>
+<!--        </button>-->
+
+
+    </h2>
+    <h3 style="color: #fff">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Name of User</th>
+                <th scope="col">Second name</th>
+                <th scope="col">Model of auto</th>
+                <th scope="col">Number of auto</th>
+                <th scope="col">Problems with auto</th>
+                <!--        <th scope="col">Phone number</th>-->
+                </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.secondName}"></td>
+                <td th:text="${user.modelAuto}"></td>
+                <td th:text="${user.numberAuto}"></td>
+                <td th:text="${user.problems}"></td>
+                <!--        <td th:text="${user.numberPhone}"></td>-->
+
+                <td>
+                    <a style="position:relative; color: #FFC300 "
+                       th:href="@{/edit_user/{id}(id=${user.id})}">Edit</a>
+                </td>
+                <td>
+                    <a style="position:relative; color: #FF0000"
+                            th:href="@{/user_delete/{id}(id=${user.id})}">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </h3>
+
+</body>
+</html>

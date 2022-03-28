@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="position: relative; background-color: #046586">
+    <div style="position: relative;left:-10px; background-color: #4DA927; width: 110%; height: 90px; top: -20px">
+        <h1 style="position: relative; text-align: center; top: 20px">Hello from edit user statement!!</h1>
+        <br>
+        <hr>
+    </div>
+    <div class="container mt-5 mb-10">
+        <form action="#" th:action="@{/edit_user/{id}(id=${user.id})}" th:object="${user}" method="post">
+            Name of User <input type="text" id="name" th:field="*{name}" placeholder="Name of user"
+                                class="form-control" required minlength="2" maxlength="30">
+            </p>
+            Second Name <input type="text" id="secondName" th:field="*{secondName}" placeholder="Second name of user"
+                               class="form-control" required minlength="4" maxlength="30">
+            </p>
+            Model of auto <input type="text" id="modelAuto" th:field="*{modelAuto}" placeholder="Model of auto"
+                                 class="form-control" required minlength="1" maxlength="30">
+            </p>
+            Number of auto <input type="text" id="numberAuto" th:field="*{numberAuto}" placeholder="Model of auto"
+                                  class="form-control" required minlength="1" maxlength="9">
+            </p>
+            Problems with auto <input  type="text" size="150px" id="problems" th:field="*{problems}" placeholder="Problems with auto"
+                                      class="form-control" required minlength="1" maxlength="100">
+            </p>
+<!--            Phone number <input type="number" id="numberPhone" th:field="*{numberPhone}" placeholder="Phone number"-->
+<!--                                      class="form-control" required minlength="9" maxlength="9">-->
+<!--            </p>-->
+            <div>
+                <button style="position: relative; center; width: 350px; height: 40px; font-size:2vw;
+                    background-color: #14D3C1" ><a href="/add_user" style="color: #fff">Edit user</a></button>
+                <br>
+            </div>
+
+        </form>
+</div>
+</body>
+</html>
